@@ -1,0 +1,156 @@
+:root {
+  --bg: #2b2b2b;
+  --surface: #383838;
+  --surface-hover: #454545;
+  --surface-active: #505050;
+  --border: #4a4a4a;
+  --text: #e8e8e8;
+  --text-muted: #a8a8a8;
+  --accent: #1473e6;
+  --accent-hover: #0d66d0;
+  --success: #2d9d78;
+  --error: #e34850;
+  --button-size: 72px;
+  --radius: 8px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Adobe Clean", "Segoe UI", system-ui, sans-serif;
+  font-size: 12px;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+  gap: 12px;
+}
+
+.panel-header {
+  flex-shrink: 0;
+}
+
+.panel-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.panel-subtitle {
+  margin: 4px 0 0;
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--button-size), 1fr));
+  gap: 10px;
+  flex: 1;
+  overflow-y: auto;
+  align-content: start;
+  padding-right: 2px;
+}
+
+.script-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: var(--button-size);
+  padding: 10px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+}
+
+.script-button:hover {
+  background: var(--surface-hover);
+  border-color: var(--accent);
+}
+
+.script-button:active {
+  background: var(--surface-active);
+  transform: scale(0.98);
+}
+
+.script-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.script-button.is-running {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.script-button__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+}
+
+.script-button__icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+.script-button__label {
+  font-size: 10px;
+  line-height: 1.2;
+  text-align: center;
+  color: var(--text-muted);
+  word-break: break-word;
+}
+
+.panel-footer {
+  flex-shrink: 0;
+  min-height: 18px;
+}
+
+.status-message {
+  margin: 0;
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.status-message.is-success {
+  color: var(--success);
+}
+
+.status-message.is-error {
+  color: var(--error);
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  padding: 24px 12px;
+  text-align: center;
+  color: var(--text-muted);
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+}
