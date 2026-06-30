@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EP Script Panel</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="panel">
+    <header class="panel-header">
+      <h1 class="panel-title">Script Buttons</h1>
+      <p class="panel-subtitle">Click an icon to run its ExtendScript</p>
+    </header>
+
+    <main id="script-buttons" class="button-grid" role="toolbar" aria-label="Script buttons"></main>
+
+    <footer class="panel-footer">
+      <p id="status-message" class="status-message" role="status" aria-live="polite"></p>
+    </footer>
+  </div>
+
+  <script src="js/CSInterface.js"></script>
+  <script src="js/scripts-config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

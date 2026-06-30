@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionManifest
+  Version="12.0"
+  ExtensionBundleId="com.ep.cep-panel"
+  ExtensionBundleVersion="1.0.0"
+  ExtensionBundleName="EP Script Panel">
+  <ExtensionList>
+    <Extension Id="com.ep.cep-panel.panel" Version="1.0.0"/>
+  </ExtensionList>
+  <ExecutionEnvironment>
+    <HostList>
+      <Host Name="ILST" Version="[28.0,99.9]"/>
+    </HostList>
+    <LocaleList>
+      <Locale Code="All"/>
+    </LocaleList>
+    <RequiredRuntimeList>
+      <RequiredRuntime Name="CSXS" Version="12.0"/>
+    </RequiredRuntimeList>
+  </ExecutionEnvironment>
+  <DispatchInfoList>
+    <Extension Id="com.ep.cep-panel.panel">
+      <DispatchInfo>
+        <Resources>
+          <MainPath>./client/index.html</MainPath>
+          <ScriptPath>./host/index.jsx</ScriptPath>
+          <CEFCommandLine>
+            <Parameter>--enable-nodejs</Parameter>
+            <Parameter>--mixed-context</Parameter>
+          </CEFCommandLine>
+        </Resources>
+        <Lifecycle>
+          <AutoVisible>true</AutoVisible>
+        </Lifecycle>
+        <UI>
+          <Type>Panel</Type>
+          <Menu>EP Script Panel</Menu>
+          <Geometry>
+            <Size>
+              <Height>420</Height>
+              <Width>280</Width>
+            </Size>
+            <MinSize>
+              <Height>200</Height>
+              <Width>200</Width>
+            </MinSize>
+            <MaxSize>
+              <Height>1200</Height>
+              <Width>600</Width>
+            </MaxSize>
+          </Geometry>
+          <Icons>
+            <Icon Type="Normal">./client/icons/panel-icon.png</Icon>
+            <Icon Type="RollOver">./client/icons/panel-icon.png</Icon>
+            <Icon Type="DarkNormal">./client/icons/panel-icon.png</Icon>
+            <Icon Type="DarkRollOver">./client/icons/panel-icon.png</Icon>
+          </Icons>
+        </UI>
+      </DispatchInfo>
+    </Extension>
+  </DispatchInfoList>
+</ExtensionManifest>
