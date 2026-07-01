@@ -9,7 +9,13 @@
  * - label: text shown under the icon
  * - tooltip: hover description
  * - script: filename inside host/scripts/
- * - icon: inline SVG markup (24x24 viewBox recommended)
+ * - icon: inline SVG markup (paste directly from lucide.dev)
+ *
+ * Lucide icons: paste the full <svg> from lucide.dev into icon. The panel
+ * auto-normalizes Lucide markup (removes width/height/class, fixes stroke color).
+ *
+ * Ideal minimal format after cleanup:
+ * icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="..."/></svg>'
  */
 var SCRIPT_BUTTONS = [
   {

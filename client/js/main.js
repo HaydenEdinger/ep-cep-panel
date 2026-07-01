@@ -43,6 +43,35 @@
     return extensionRoot + separator + 'host' + separator + 'scripts' + separator + scriptFileName;
   }
 
+  function normalizeIconSvg(markup) {
+    var fallback = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7L8 5z"/></svg>';
+
+    if (!markup || typeof markup !== 'string') {
+      return fallback;
+    }
+
+    var normalized = markup.trim();
+
+    normalized = normalized
+      .replace(/\sxmlns="[^"]*"/gi, '')
+      .replace(/\swidth="[^"]*"/gi, '')
+      .replace(/\sheight="[^"]*"/gi, '')
+      .replace(/\sclass="[^"]*"/gi, '')
+      .replace(/\sstroke="#000000"/gi, ' stroke="currentColor"')
+      .replace(/\sstroke="#000"/gi, ' stroke="currentColor"')
+      .replace(/\sstroke="black"/gi, ' stroke="currentColor"');
+
+    if (normalized.indexOf('viewBox=') === -1) {
+      normalized = normalized.replace('<svg', '<svg viewBox="0 0 24 24"');
+    }
+
+    if (normalized.indexOf('aria-hidden=') === -1) {
+      normalized = normalized.replace('<svg', '<svg aria-hidden="true"');
+    }
+
+    return normalized;
+  }
+
   function runExtendScript(scriptFileName, buttonEl) {
     if (!scriptFileName) {
       setStatus('No script file configured for this button.', 'error');
@@ -103,7 +132,7 @@
 
     var icon = document.createElement('span');
     icon.className = 'script-button__icon';
-    icon.innerHTML = config.icon || '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7L8 5z"/></svg>';
+    icon.innerHTML = normalizeIconSvg(config.icon);
 
     var label = document.createElement('span');
     label.className = 'script-button__label';

@@ -113,7 +113,17 @@ body {
 .script-button__icon svg {
   width: 100%;
   height: 100%;
+}
+
+/* Filled icons (default path icons) */
+.script-button__icon svg:not([fill="none"]) {
   fill: currentColor;
+}
+
+/* Lucide stroke icons */
+.script-button__icon svg[fill="none"] {
+  fill: none;
+  stroke: currentColor;
 }
 
 .script-button__label {
